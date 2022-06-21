@@ -80,3 +80,10 @@ function optionChanged(selectedID) {
         Plotly.newPlot('gauge', guageData, gaugeLayout);
     });
 }
+// first name on the list
+optionChanged(940);
+
+// Event on change takes the value and calls the function during dropdown selection
+d3.select("#selDataset").on('change', () => {
+    optionChanged(d3.event.target.value);
+});
