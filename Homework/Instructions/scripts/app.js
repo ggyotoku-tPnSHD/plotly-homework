@@ -1,5 +1,5 @@
 function optionChanged(selectedID) {
-    console.log(selectedID);
+    // console.log(selectedID);
     d3.json("data/samples.json").then((data) => {
         d3.select("#selDataset").html("");
         data.metadata.forEach(item => {
@@ -30,10 +30,8 @@ function optionChanged(selectedID) {
                     width: 3
                 }
             }
-        },
-            layout = {
-            };
-        Plotly.newPlot('bar', [trace], layout, { responsive: true });
+        };
+        Plotly.newPlot('bar', [trace], { responsive: true });
         var sampleValue1 = idSample[0].sample_values;
         var otuID1 = idSample[0].otu_ids;
         const trace1 = {
@@ -44,9 +42,7 @@ function optionChanged(selectedID) {
                 color: otuID1,
                 size: sampleValue1
             }
-        },
-            layout1 = {
-            };
+        };
         Plotly.newPlot('bubble', [trace1]);
         const guageDisplay = d3.select("#gauge");
         guageDisplay.html("");
